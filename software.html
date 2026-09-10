@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Software Hub — Solo Human</title><link rel="icon" href="sh-logo.png"><style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#05080d;color:#edf1f5;font-family:Inter,Segoe UI,Arial,sans-serif}
+a{text-decoration:none;color:inherit}
+.software-nav{height:80px;display:flex;align-items:center;gap:28px;padding:0 4%;background:#05080d;border-bottom:1px solid #202832}
+.software-brand{display:flex;align-items:center;gap:10px;min-width:330px}
+.software-brand img{width:52px;height:52px;object-fit:cover;border-radius:10px}
+.software-brand span{font-size:28px;font-weight:900;letter-spacing:1px}
+.software-brand i{font-style:normal;color:#ed3030}
+.software-brand small{display:block;font-size:8px;color:#8793a0;letter-spacing:2px;margin-top:2px}
+.software-nav nav{display:flex;gap:24px;flex:1;justify-content:center}
+.software-nav nav a{font-size:14px;color:#aeb8c4;padding:31px 0;position:relative}
+.software-nav nav a:hover,.software-nav nav a.active{color:#fff}
+.software-nav nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#ef3030}
+.software-actions{display:flex;align-items:center;gap:10px}
+.software-actions input{width:225px;background:#0b1119;border:1px solid #35404c;border-radius:24px;padding:11px 15px;color:#fff;outline:none;font-size:14px}
+.software-actions span{font-size:25px;color:#d8e0e7}
+.software-spacer{height:60px;background:#05080d;border-bottom:1px solid #111821}
+.software-hero{position:relative;min-height:358px;padding:52px 4.5% 48px;overflow:hidden;border-bottom:1px solid #202832;background:radial-gradient(circle at 82% 40%,rgba(65,60,180,.16),transparent 30%),radial-gradient(circle at 17% 55%,rgba(190,25,75,.17),transparent 38%),linear-gradient(105deg,#190b14 0%,#0c0d19 48%,#080c18 100%)}
+.software-hero:after{content:"";position:absolute;right:0;top:0;width:5px;height:100%;background:#ff3036}
+.software-hero-inner{max-width:1510px;margin:auto}
+.software-kicker{display:flex;align-items:center;gap:13px;margin-bottom:12px;color:#ff3036;font-size:14px;font-weight:900;letter-spacing:1.5px}
+.software-kicker-icon{display:grid;place-items:center;width:46px;height:46px;border:1px solid #29303b;border-radius:50%;font-size:21px}
+.software-hero h1{margin:0 0 12px;font-size:clamp(48px,4vw,62px);line-height:1;font-weight:900;letter-spacing:-2px}
+.software-hero p{max-width:800px;margin:0;color:#93a0b0;font-size:20px;line-height:1.5}
+.software-stats{display:flex;flex-wrap:wrap;gap:16px;margin-top:28px}
+.software-stat{display:flex;align-items:center;gap:10px;padding:10px 18px;border:1px solid #26313e;border-radius:13px;background:#09111a;font-size:16px}
+.software-stat span{font-size:18px}
+.software-content{max-width:1510px;margin:auto;padding:34px 4.5% 70px}
+.software-filters{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:35px}
+.type-filter{display:flex;align-items:center;padding:5px;gap:3px;border:1px solid #29333f;border-radius:15px;background:#09111a}
+.soft-filter,.soft-genre{border:0;color:#9eacbd;background:transparent;cursor:pointer;font:inherit}
+.soft-filter{padding:11px 20px;border-radius:11px;font-weight:700}
+.soft-filter.active{color:#fff;background:#ff3036}
+.soft-genres{display:flex;flex-wrap:wrap;gap:8px}
+.soft-genre{padding:12px 17px;border:1px solid #29333f;border-radius:12px;background:#09111a;font-size:14px}
+.soft-genre.active{color:#ff3036}
+.software-result{margin-bottom:21px;color:#8ea0b3;font-size:16px}
+.software-result b{color:#dfe5ec}
+.software-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.software-card{overflow:hidden;border:1px solid #26313e;border-radius:17px;background:#09111a;transition:.2s}
+.software-card:hover{transform:translateY(-4px);border-color:#3a4654}
+.software-art{position:relative;height:195px;overflow:hidden;background:#111923 center/cover no-repeat}
+.software-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.18))}
+.soft-badge,.soft-tag{position:absolute;top:10px;z-index:2;padding:5px 10px;border-radius:9px;font-size:11px;font-weight:900}
+.soft-badge{left:10px}
+.soft-tag{left:78px}
+.soft-badge.free{color:#fff;background:#19ce6b}
+.soft-badge.paid{color:#111;background:#ffd000}
+.soft-tag{color:#fff;background:#ff3036}
+.soft-favorite{position:absolute;top:10px;right:10px;z-index:3;width:36px;height:36px;border:1px solid rgba(255,255,255,.2);border-radius:50%;color:#fff;background:rgba(5,8,13,.55);cursor:pointer;font-size:22px}
+.soft-favorite.saved{color:#ff4a4a}
+.software-body{padding:16px 18px 18px}
+.software-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.software-title-row h3{margin:0;color:#f2f5f8;font-size:17px}
+.software-rating{flex-shrink:0;color:#ffd000;font-size:14px;font-weight:800}
+.software-body>p{min-height:42px;margin:7px 0 13px;color:#8495a8;font-size:13px;line-height:1.45}
+.software-meta{display:flex;justify-content:space-between;margin-bottom:15px;color:#8da0b4;font-size:13px}
+.software-platforms{margin-bottom:17px;color:#8da0b4;font-size:13px}
+.software-details{display:block;width:100%;padding:10px;border:1px solid #27323e;border-radius:12px;text-align:center;color:#ff3036;font-size:14px;font-weight:800}
+.software-details:hover{color:#fff;background:#ff3036}
+.soft-hidden{display:none!important}
+@media(max-width:1200px){.software-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.software-nav nav{gap:15px}.software-brand{min-width:270px}}
+@media(max-width:900px){.software-nav nav{display:none}.software-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.software-brand{min-width:auto}.software-actions input{width:170px}}
+@media(max-width:600px){.software-grid{grid-template-columns:1fr}.software-hero{padding:48px 6%}.software-content{padding-left:6%;padding-right:6%}.software-hero p{font-size:17px}.software-stat{width:100%}.software-filters{align-items:stretch;flex-direction:column}}
+</style></head>
+<body>
+<header class="software-nav">
+<a class="software-brand" href="index.html"><img src="sh-logo.png" alt="SH"><span>SOLO <i>HUMAN</i><small>GAMING • TECH • ANIME • MORE</small></span></a>
+<nav><a href="index.html">Home</a><a href="games.html">Games</a><a class="active" href="software.html">Software</a><a href="index.html#wallpapers">Wallpapers</a><a href="index.html#anime">Anime</a><a href="index.html#youtube">YouTube</a><a href="index.html#support">Help</a><a href="index.html#more">More</a></nav>
+<div class="software-actions"><input placeholder="Search anything..."><span>☼</span></div>
+</header>
+<div class="software-spacer"></div>
+<section class="software-hero"><div class="software-hero-inner">
+<div class="software-kicker"><span class="software-kicker-icon">▣</span> SOLO HUMAN</div>
+<h1>Software Hub</h1><p>Discover the best free &amp; paid software — handpicked, reviewed, and ready to download.</p>
+<div class="software-stats"><div class="software-stat"><span>🎁</span><strong>8 Free Software</strong></div><div class="software-stat"><span>🪙</span><strong>4 Paid Software</strong></div><div class="software-stat"><span>☆</span><strong>All Categories Covered</strong></div></div>
+</div></section>
+<main class="software-content">
+<div class="software-filters"><div class="type-filter"><button class="soft-filter active" data-type="all">▣ All</button><button class="soft-filter" data-type="free">🎁 Free</button><button class="soft-filter" data-type="paid">💎 Paid</button></div>
+<div class="soft-genres"><button class="soft-genre active" data-genre="all">All</button><button class="soft-genre" data-genre="Streaming">Streaming</button><button class="soft-genre" data-genre="Media">Media</button><button class="soft-genre" data-genre="Productivity">Productivity</button><button class="soft-genre" data-genre="Utility">Utility</button><button class="soft-genre" data-genre="Video Editing">Video</button><button class="soft-genre" data-genre="Design">Design</button><button class="soft-genre" data-genre="Audio">Audio</button></div></div>
+<div class="software-result">Showing <b id="softwareResultCount">12</b> software</div><div class="software-grid"><article class="software-card" data-type="free" data-genre="Streaming">
+<div class="software-art" style="background-image:url("assets/software/obs.jpg")"><span class="soft-badge free">FREE</span><span class="soft-tag">POPULAR</span><button class="soft-favorite">♡</button></div>
+<div class="software-body"><div class="software-title-row"><h3>OBS Studio</h3><span class="software-rating">☆ 4.9</span></div>
+<p>Professional open-source streaming and recording software.</p><div class="software-meta"><span>Streaming</span><span>180 MB</span></div><div class="software-platforms">▣ Windows / Mac / Linux</div>
+<a class="software-details" href="#">View &amp; Download →</a></div></article><article class="software-card" data-type="free" data-genre="Media">
+<div class="software-art" style="background-image:url("assets/software/vlc.jpg")"><span class="soft-badge free">FREE</span><button class="soft-favorite">♡</button></div>
+<div class="software-body"><div class="software-title-row"><h3>VLC Media Player</h3><span class="software-rating">☆ 4.8</span></div>
+<p>Universal media player supporting all formats.</p><div class="software-meta"><span>Media</span><span>40 MB</span></div><div class="software-platforms">▣ Windows / Mac / Linux</div>
+<a class="software-details" href="#">View &amp; Download →</a></div></article><article class="software-card" data-type="free" data-genre="Productivity">
+<div class="software-art" style="background-image:url("assets/software/sharex.jpg")"><span class="soft-badge free">FREE</span><span class="soft-tag">MUST HAVE</span><button class="soft-favorite">♡</button></div>
+<div class="software-body"><div class="software-title-row"><h3>ShareX</h3><span class="software-rating">☆ 4.7</span></div>
+<p>Advanced screenshot and screen recording tool with automation.</p><div class="software-meta"><span>Productivity</span><span>15 MB</span></div><div class="software-platforms">▣ Windows</div>
+<a class="software-details" href="#">View &amp; Download →</a></div></article><article class="software-card" data-type="free" data-genre="Utility">
+<div class="software-art" style="background-image:url("assets/software/everything.jpg")"><span class="soft-badge free">FREE</span><span class="soft-tag">UNIQUE</span><button class="soft-favorite">♡</button></div>
+<div class="software-body"><div class="software-title-row"><h3>Everything Search</h3><span class="software-rating">☆ 4.9</span></div>
+<p>Instant file search across your entire PC — blazing fast.</p><div class="software-meta"><span>Utility</span><span>2 MB</span></div><div class="software-platforms">▣ Windows</div>
+<a class="software-details" href="#">View &amp; Download →</a></div></article><article class="software-card" data-type="paid" data-genre="Video Editing">
+<div class="software-art" style="background-image:url("assets/software/premiere.jpg")"><span class="soft-badge paid">$54.99/mo</span><span class="soft-tag">PRO</span><button class="soft-favorite">♡</button></div>
+<div class="software-body"><div class="software-title-row"><h3>Adobe Premiere Pro</h3><span class="software-rating">☆ 4.7</span></div>
+<p>Industry-standard professional video editing suite.</p><div class="software-meta"><span>Video Editing</span><span>2.8 GB</span></div><div class="software-platforms">▣ Windows / Mac</div>
+<a class="software-details" href="#">View &amp; Download →</a></div></article><article class="software-card" data-type="paid" data-genre="Design">
+<div class="software-art" style="background-image:url("assets/software/photoshop.jpg")"><span class="soft-badge paid">$22.99/mo</span><button class="soft-favorite">♡</button></div>
+<div class="software-body"><div class="software-title-row"><h3>Photoshop</h3><span class="software-rating">☆ 4.8</span></div>
+<p>The world's most powerful photo editing and design tool.</p><div class="software-meta"><span>Design</span><span>4 GB</span></div><div class="software-platforms">▣ Windows / Mac</div>
+<a class="software-details" href="#">View &amp; Download →</a></div></article><article class="software-card" data-type="free" data-genre="Customization">
+<div class="software-art" style="background-image:url("assets/software/rainmeter.jpg")"><span class="soft-badge free">FREE</span><span class="soft-tag">UNIQUE</span><button class="soft-favorite">♡</button></div>
+<div class="software-body"><div class="software-title-row"><h3>Rainmeter</h3><span class="software-rating">☆ 4.6</span></div>
+<p>Transform your desktop with animated skins and widgets.</p><div class="software-meta"><span>Customization</span><span>8 MB</span></div><div class="software-platforms">▣ Windows</div>
+<a class="software-details" href="#">View &amp; Download →</a></div></article><article class="software-card" data-type="free" data-genre="System Utility">
+<div class="software-art" style="background-image:url("assets/software/process-hacker.jpg")"><span class="soft-badge free">FREE</span><span class="soft-tag">UNIQUE</span><button class="soft-favorite">♡</button></div>
+<div class="software-body"><div class="software-title-row"><h3>Process Hacker</h3><span class="software-rating">☆ 4.8</span></div>
+<p>Advanced task manager with deep system monitoring capabilities.</p><div class="software-meta"><span>System Utility</span><span>12 MB</span></div><div class="software-platforms">▣ Windows</div>
+<a class="software-details" href="#">View &amp; Download →</a></div></article><article class="software-card" data-type="free" data-genre="Video Editing">
+<div class="software-art" style="background-image:url("assets/software/premiere.jpg")"><span class="soft-badge free">FREE</span><span class="soft-tag">POPULAR</span><button class="soft-favorite">♡</button></div>
+<div class="software-body"><div class="software-title-row"><h3>DaVinci Resolve</h3><span class="software-rating">☆ 4.8</span></div>
+<p>Professional editing, color, effects and audio in one suite.</p><div class="software-meta"><span>Video Editing</span><span>3.5 GB</span></div><div class="software-platforms">▣ Windows / Mac / Linux</div>
+<a class="software-details" href="#">View &amp; Download →</a></div></article><article class="software-card" data-type="free" data-genre="Audio">
+<div class="software-art" style="background-image:url("assets/software/obs.jpg")"><span class="soft-badge free">FREE</span><button class="soft-favorite">♡</button></div>
+<div class="software-body"><div class="software-title-row"><h3>Audacity</h3><span class="software-rating">☆ 4.7</span></div>
+<p>Powerful open-source audio recording and editing software.</p><div class="software-meta"><span>Audio</span><span>40 MB</span></div><div class="software-platforms">▣ Windows / Mac / Linux</div>
+<a class="software-details" href="#">View &amp; Download →</a></div></article><article class="software-card" data-type="paid" data-genre="File Utility">
+<div class="software-art" style="background-image:url("assets/software/process-hacker.jpg")"><span class="soft-badge paid">$29.99</span><button class="soft-favorite">♡</button></div>
+<div class="software-body"><div class="software-title-row"><h3>WinRAR</h3><span class="software-rating">☆ 4.5</span></div>
+<p>Archive manager for compressing and extracting files.</p><div class="software-meta"><span>File Utility</span><span>6 MB</span></div><div class="software-platforms">▣ Windows</div>
+<a class="software-details" href="#">View &amp; Download →</a></div></article><article class="software-card" data-type="free" data-genre="Design">
+<div class="software-art" style="background-image:url("assets/software/rainmeter.jpg")"><span class="soft-badge free">FREE</span><span class="soft-tag">UNIQUE</span><button class="soft-favorite">♡</button></div>
+<div class="software-body"><div class="software-title-row"><h3>Figma</h3><span class="software-rating">☆ 4.8</span></div>
+<p>Collaborative interface design and prototyping workspace.</p><div class="software-meta"><span>Design</span><span>Web App</span></div><div class="software-platforms">▣ Windows / Mac / Web</div>
+<a class="software-details" href="#">View &amp; Download →</a></div></article></div>
+</main><script>
+document.addEventListener("DOMContentLoaded",function(){
+  const cards=[...document.querySelectorAll(".software-card")];
+  const count=document.getElementById("softwareResultCount");
+  let type="all",genre="all";
+  function render(){
+    let n=0;
+    cards.forEach(c=>{
+      const ok=(type==="all"||c.dataset.type===type)&&(genre==="all"||c.dataset.genre===genre);
+      c.classList.toggle("soft-hidden",!ok);
+      if(ok)n++;
+    });
+    count.textContent=n;
+  }
+  document.querySelectorAll(".soft-filter").forEach(b=>b.addEventListener("click",()=>{
+    document.querySelectorAll(".soft-filter").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active"); type=b.dataset.type; render();
+  }));
+  document.querySelectorAll(".soft-genre").forEach(b=>b.addEventListener("click",()=>{
+    document.querySelectorAll(".soft-genre").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active"); genre=b.dataset.genre; render();
+  }));
+  document.querySelectorAll(".soft-favorite").forEach(b=>b.addEventListener("click",()=>{
+    b.classList.toggle("saved"); b.textContent=b.classList.contains("saved")?"♥":"♡";
+  }));
+  render();
+});
+</script></body></html>
