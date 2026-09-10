@@ -1,12 +1,16 @@
-SOLO HUMAN PORTAL
+SOLO HUMAN FINAL PACKAGE
 
-Open index.html to preview.
+Upload/replace the files in this folder at the ROOT of the GitHub repository.
+Keep the assets folder intact.
 
-EDITING:
-- Replace # in script.js/card links with your official or legally shareable URLs.
-- Replace text, categories and cards directly in index.html/script.js.
-- sh-logo.png is the supplied SH logo.
+Required root files:
+index.html
+style.css
+script.js
+games.html
+games.js
+sh-logo.png
+assets/
 
-FREE HOSTING:
-Upload these files to a static host such as GitHub Pages or Cloudflare Pages.
-The website is a front end; it does not provide 500 GB of file storage.
+After commit, open:
+https://solohumangaming.github.io/solohuman.github.io/games.html
