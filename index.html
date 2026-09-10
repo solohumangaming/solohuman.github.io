@@ -12,7 +12,7 @@
 <header class="nav">
   <a class="brand" href="#home"><img src="sh-logo.png" alt="SH"><span>SOLO <i>HUMAN</i><small>GAMING • TECH • ANIME • MORE</small></span></a>
   <nav>
-    <a class="active" href="#home">Home</a><a href="#games">Games</a><a href="#software">Software</a>
+    <a class="active" href="#home">Home</a><a href="games.html">Games</a><a href="#software">Software</a>
     <a href="#wallpapers">Wallpapers</a><a href="#anime">Anime</a><a href="#youtube">YouTube</a><a href="#support">Help</a><a href="#more">More</a>
   </nav>
   <div class="actions"><input id="globalSearch" placeholder="Search anything..."><button id="themeBtn">☼</button></div>
@@ -26,13 +26,13 @@
       <p class="kicker">SOLO HUMAN</p>
       <h1>PLAY <b>•</b> EXPLORE<br>LEARN <b>•</b> GROW</h1>
       <p class="hero-copy">Your all-in-one hub for gaming, useful software, anime, wallpapers, YouTube creator resources, reviews and community updates.</p>
-      <div class="buttons"><a class="btn red" href="#games">Explore Library</a><a class="btn glass" href="#youtube">Creator Zone</a></div>
+      <div class="buttons"><a class="btn red" href="games.html">Explore Library</a><a class="btn glass" href="#youtube">Creator Zone</a></div>
     </div>
   </div>
 </section>
 
 <section class="categories">
-  <a href="#games"><strong>🎮</strong><span>Games<small>Free & More</small></span></a>
+  <a href="games.html"><strong>🎮</strong><span>Games<small>Free & More</small></span></a>
   <a href="#software"><strong>▣</strong><span>Software<small>Useful & Unique</small></span></a>
   <a href="#wallpapers"><strong>▧</strong><span>Wallpapers<small>4K & HD</small></span></a>
   <a href="#anime"><strong>☆</strong><span>Anime<small>News & More</small></span></a>
@@ -45,9 +45,48 @@
 </section>
 
 <main>
-<section class="section" id="games">
-  <div class="heading"><div><p class="kicker">GAMES</p><h2>Free Paid Games</h2></div><button class="view" onclick="filterCategory('games')">View all →</button></div>
-  <div class="cards" id="gamesGrid"></div>
+<section class="section games-preview" id="gamesPreview">
+  <div class="heading">
+    <div><p class="kicker">GAMES</p><h2>Free Paid Games</h2></div>
+    <a class="view" href="games.html">View all →</a>
+  </div>
+  <div class="cards" id="gamesPreviewGrid"></div>
+</section>
+
+<section class="games-page" id="games">
+  <div class="games-hero">
+    <div class="games-hero-inner">
+      <div class="games-kicker"><span>✚</span> SOLO HUMAN</div>
+      <h1>Games Hub</h1>
+      <p>Discover the best free & paid games — handpicked, reviewed, and ready to download.</p>
+      <div class="games-stats">
+        <span>🎁 <b id="freeCount">6</b> Free Games</span>
+        <span>🪙 <b id="paidCount">6</b> Paid Games</span>
+        <span>☆ All Genres Covered</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="games-toolbar">
+    <div class="type-filters" role="tablist" aria-label="Game type">
+      <button class="game-filter active" data-type="all">🎮 All</button>
+      <button class="game-filter" data-type="free">🎁 Free</button>
+      <button class="game-filter" data-type="paid">💎 Paid</button>
+    </div>
+
+    <div class="genre-filters" role="tablist" aria-label="Game genre">
+      <button class="genre-filter active" data-genre="all">All</button>
+      <button class="genre-filter" data-genre="Action">Action</button>
+      <button class="genre-filter" data-genre="RPG">RPG</button>
+      <button class="genre-filter" data-genre="Strategy">Strategy</button>
+      <button class="genre-filter" data-genre="FPS">FPS</button>
+      <button class="genre-filter" data-genre="Indie">Indie</button>
+      <button class="genre-filter" data-genre="Horror">Horror</button>
+    </div>
+  </div>
+
+  <div class="games-result"><span>Showing</span> <b id="gameResultCount">12</b> games</div>
+  <div class="games-grid" id="gamesGrid"></div>
 </section>
 
 <section class="section" id="software">
@@ -92,7 +131,7 @@
 
 <section class="section compact" id="reviews">
   <div class="heading"><div><p class="kicker">REVIEWS</p><h2>Game Reviews</h2></div></div>
-  <div class="review"><div class="score">8.7<span>/10</span></div><div><h3>Game Review Hub</h3><p>Performance, gameplay, graphics, value and honest pros & cons — all in one place.</p></div><a class="btn glass" href="#games">Browse</a></div>
+  <div class="review"><div class="score">8.7<span>/10</span></div><div><h3>Game Review Hub</h3><p>Performance, gameplay, graphics, value and honest pros & cons — all in one place.</p></div><a class="btn glass" href="games.html">Browse</a></div>
 </section>
 
 <section class="section compact" id="more">
