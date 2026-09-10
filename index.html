@@ -45,48 +45,9 @@
 </section>
 
 <main>
-<section class="section games-preview" id="gamesPreview">
-  <div class="heading">
-    <div><p class="kicker">GAMES</p><h2>Free Paid Games</h2></div>
-    <a class="view" href="#games">View all →</a>
-  </div>
-  <div class="cards" id="gamesPreviewGrid"></div>
-</section>
-
-<section class="games-page" id="games">
-  <div class="games-hero">
-    <div class="games-hero-inner">
-      <div class="games-kicker"><span>✚</span> SOLO HUMAN</div>
-      <h1>Games Hub</h1>
-      <p>Discover the best free & paid games — handpicked, reviewed, and ready to download.</p>
-      <div class="games-stats">
-        <span>🎁 <b id="freeCount">6</b> Free Games</span>
-        <span>🪙 <b id="paidCount">6</b> Paid Games</span>
-        <span>☆ All Genres Covered</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="games-toolbar">
-    <div class="type-filters" role="tablist" aria-label="Game type">
-      <button class="game-filter active" data-type="all">🎮 All</button>
-      <button class="game-filter" data-type="free">🎁 Free</button>
-      <button class="game-filter" data-type="paid">💎 Paid</button>
-    </div>
-
-    <div class="genre-filters" role="tablist" aria-label="Game genre">
-      <button class="genre-filter active" data-genre="all">All</button>
-      <button class="genre-filter" data-genre="Action">Action</button>
-      <button class="genre-filter" data-genre="RPG">RPG</button>
-      <button class="genre-filter" data-genre="Strategy">Strategy</button>
-      <button class="genre-filter" data-genre="FPS">FPS</button>
-      <button class="genre-filter" data-genre="Indie">Indie</button>
-      <button class="genre-filter" data-genre="Horror">Horror</button>
-    </div>
-  </div>
-
-  <div class="games-result"><span>Showing</span> <b id="gameResultCount">12</b> games</div>
-  <div class="games-grid" id="gamesGrid"></div>
+<section class="section" id="games">
+  <div class="heading"><div><p class="kicker">GAMES</p><h2>Free Paid Games</h2></div><button class="view" onclick="filterCategory('games')">View all →</button></div>
+  <div class="cards" id="gamesGrid"></div>
 </section>
 
 <section class="section" id="software">

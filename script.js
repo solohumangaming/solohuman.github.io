@@ -21,11 +21,6 @@ const data = {
   ]
 };
 
-
-/* =========================
-   CARDS
-========================= */
-
 function cards(items) {
   return items.map(x => `
     <article class="card">
@@ -57,13 +52,21 @@ const gamesGrid = document.getElementById("gamesGrid");
 const softwareGrid = document.getElementById("softwareGrid");
 const wallpaperGrid = document.getElementById("wallpaperGrid");
 
-if (gamesGrid) gamesGrid.innerHTML = cards(data.games);
-if (softwareGrid) softwareGrid.innerHTML = cards(data.software);
-if (wallpaperGrid) wallpaperGrid.innerHTML = cards(data.wallpapers);
+if (gamesGrid) {
+  gamesGrid.innerHTML = cards(data.games);
+}
+
+if (softwareGrid) {
+  softwareGrid.innerHTML = cards(data.software);
+}
+
+if (wallpaperGrid) {
+  wallpaperGrid.innerHTML = cards(data.wallpapers);
+}
 
 
 /* =========================
-   DEMO BUTTON
+   DEMO DOWNLOAD
 ========================= */
 
 function demo(e) {
@@ -78,31 +81,49 @@ function demo(e) {
 
 
 /* =========================
-   MAIN PAGE ELEMENTS
+   SINGLE PAGE NAVIGATION
 ========================= */
 
-const hero = document.querySelector(".hero");
-const categories = document.querySelector(".categories");
+const pageSections = [
+  "home",
+  "games",
+  "software",
+  "wallpapers",
+  "anime",
+  "youtube",
+  "support",
+  "more"
+];
 
-const games = document.getElementById("games");
-const software = document.getElementById("software");
-const wallpapers = document.getElementById("wallpapers");
+function showPage(page) {
 
-const split = document.querySelector(".split");
-const creator = document.getElementById("creator");
-const reviews = document.getElementById("reviews");
-const more = document.getElementById("more");
+  if (!pageSections.includes(page)) {
+    page = "home";
+  }
 
-const notices = document.querySelectorAll(".notice");
-const support = document.querySelector(".support");
-const discord = document.querySelector(".discord");
+  /*
+    Homepage elements
+  */
 
+  const hero = document.querySelector(".hero");
+  const categories = document.querySelector(".categories");
 
-/* =========================
-   HIDE EVERYTHING
-========================= */
+  const games = document.getElementById("games");
+  const software = document.getElementById("software");
+  const wallpapers = document.getElementById("wallpapers");
 
-function hideEverything() {
+  const split = document.querySelector(".split");
+  const creator = document.getElementById("creator");
+  const reviews = document.getElementById("reviews");
+  const more = document.getElementById("more");
+
+  const notices = document.querySelectorAll(".notice");
+  const support = document.querySelector(".support");
+  const discord = document.querySelector(".discord");
+
+  /*
+    Hide everything first
+  */
 
   if (hero) hero.style.display = "none";
   if (categories) categories.style.display = "none";
@@ -116,218 +137,162 @@ function hideEverything() {
   if (reviews) reviews.style.display = "none";
   if (more) more.style.display = "none";
 
-  notices.forEach(section => {
-    section.style.display = "none";
+  notices.forEach(x => {
+    x.style.display = "none";
   });
 
   if (support) support.style.display = "none";
   if (discord) discord.style.display = "none";
-}
 
 
-/* =========================
-   HOME
-========================= */
+  /*
+    HOME
+  */
 
-function showHome() {
+  if (page === "home") {
 
-  hideEverything();
+    if (hero) hero.style.display = "";
+    if (categories) categories.style.display = "";
 
-  if (hero) hero.style.display = "";
-  if (categories) categories.style.display = "";
+    if (games) games.style.display = "";
+    if (software) software.style.display = "";
+    if (wallpapers) wallpapers.style.display = "";
 
-  if (games) games.style.display = "";
-  if (software) software.style.display = "";
-  if (wallpapers) wallpapers.style.display = "";
+    if (split) split.style.display = "";
+    if (creator) creator.style.display = "";
+    if (reviews) reviews.style.display = "";
+    if (more) more.style.display = "";
 
-  if (split) split.style.display = "";
-  if (creator) creator.style.display = "";
-  if (reviews) reviews.style.display = "";
-  if (more) more.style.display = "";
+    notices.forEach(x => {
+      x.style.display = "";
+    });
 
-  notices.forEach(section => {
-    section.style.display = "";
-  });
+    if (support) support.style.display = "";
+    if (discord) discord.style.display = "";
+  }
 
-  if (support) support.style.display = "";
-  if (discord) discord.style.display = "";
 
-  setActive("home");
+  /*
+    GAMES
+  */
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
+  else if (page === "games") {
 
+    if (games) games.style.display = "";
+  }
 
-/* =========================
-   GAMES HUB
-========================= */
 
-function showGames() {
+  /*
+    SOFTWARE
+  */
 
-  hideEverything();
+  else if (page === "software") {
 
-  if (games) games.style.display = "";
+    if (software) software.style.display = "";
+  }
 
-  setActive("games");
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
+  /*
+    WALLPAPERS
+  */
 
+  else if (page === "wallpapers") {
 
-/* =========================
-   SOFTWARE HUB
-========================= */
+    if (wallpapers) wallpapers.style.display = "";
+  }
 
-function showSoftware() {
 
-  hideEverything();
+  /*
+    ANIME
+  */
 
-  if (software) software.style.display = "";
+  else if (page === "anime") {
 
-  setActive("software");
+    if (split) {
+      split.style.display = "";
+    }
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
+    if (split) {
+      const panels = split.querySelectorAll(".panel");
 
+      panels.forEach(panel => {
+        panel.style.display = "none";
+      });
 
-/* =========================
-   WALLPAPER HUB
-========================= */
+      const animePanel = document.getElementById("anime");
 
-function showWallpapers() {
+      if (animePanel) {
+        animePanel.style.display = "";
+      }
+    }
 
-  hideEverything();
+    document.querySelectorAll(
+      "#anime-apps, #anime-sites, #anime-news"
+    ).forEach(x => {
+      x.style.display = "";
+    });
+  }
 
-  if (wallpapers) wallpapers.style.display = "";
 
-  setActive("wallpapers");
+  /*
+    YOUTUBE
+  */
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
+  else if (page === "youtube") {
 
+    if (split) {
+      split.style.display = "";
+    }
 
-/* =========================
-   ANIME HUB
-========================= */
+    if (split) {
+      const panels = split.querySelectorAll(".panel");
 
-function showAnime() {
+      panels.forEach(panel => {
+        panel.style.display = "none";
+      });
 
-  hideEverything();
+      const youtubePanel = document.getElementById("youtube");
 
-  if (split) split.style.display = "";
+      if (youtubePanel) {
+        youtubePanel.style.display = "";
+      }
+    }
 
-  const animePanel = document.getElementById("anime");
-  const youtubePanel = document.getElementById("youtube");
+    document.querySelectorAll("#youtube-news, #tools").forEach(x => {
+      x.style.display = "";
+    });
+  }
 
-  if (animePanel) animePanel.style.display = "";
-  if (youtubePanel) youtubePanel.style.display = "none";
 
-  document.querySelectorAll(
-    "#anime-apps, #anime-sites, #anime-news"
-  ).forEach(section => {
-    section.style.display = "";
-  });
+  /*
+    HELP
+  */
 
-  setActive("anime");
+  else if (page === "support") {
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
+    if (support) support.style.display = "";
 
+    if (discord) discord.style.display = "";
+  }
 
-/* =========================
-   YOUTUBE HUB
-========================= */
 
-function showYouTube() {
+  /*
+    MORE
+  */
 
-  hideEverything();
+  else if (page === "more") {
 
-  if (split) split.style.display = "";
+    if (more) more.style.display = "";
 
-  const animePanel = document.getElementById("anime");
-  const youtubePanel = document.getElementById("youtube");
+    document.querySelectorAll("#tools").forEach(x => {
+      x.style.display = "";
+    });
+  }
 
-  if (animePanel) animePanel.style.display = "none";
-  if (youtubePanel) youtubePanel.style.display = "";
 
-  document.querySelectorAll(
-    "#youtube-news, #tools"
-  ).forEach(section => {
-    section.style.display = "";
-  });
-
-  setActive("youtube");
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-
-
-/* =========================
-   HELP
-========================= */
-
-function showHelp() {
-
-  hideEverything();
-
-  if (support) support.style.display = "";
-  if (discord) discord.style.display = "";
-
-  setActive("support");
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-
-
-/* =========================
-   MORE HUB
-========================= */
-
-function showMore() {
-
-  hideEverything();
-
-  if (more) more.style.display = "";
-
-  document.querySelectorAll("#tools").forEach(section => {
-    section.style.display = "";
-  });
-
-  setActive("more");
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-
-
-/* =========================
-   ACTIVE NAVBAR
-========================= */
-
-function setActive(page) {
+  /*
+    ACTIVE NAVBAR
+  */
 
   document.querySelectorAll(".nav nav a").forEach(link => {
 
@@ -339,6 +304,16 @@ function setActive(page) {
       link.classList.remove("active");
     }
 
+  });
+
+
+  /*
+    Scroll to top
+  */
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
   });
 }
 
@@ -353,46 +328,70 @@ document.querySelectorAll(".nav nav a").forEach(link => {
 
     e.preventDefault();
 
-    const page = this.getAttribute("href").replace("#", "");
+    const target = this.getAttribute("href").replace("#", "");
 
-    if (page === "home") {
-      showHome();
-    }
-
-    else if (page === "games") {
-      showGames();
-    }
-
-    else if (page === "software") {
-      showSoftware();
-    }
-
-    else if (page === "wallpapers") {
-      showWallpapers();
-    }
-
-    else if (page === "anime") {
-      showAnime();
-    }
-
-    else if (page === "youtube") {
-      showYouTube();
-    }
-
-    else if (page === "support") {
-      showHelp();
-    }
-
-    else if (page === "more") {
-      showMore();
-    }
+    showPage(target);
 
     history.pushState(
       null,
       "",
-      "#" + page
+      "#" + target
     );
+  });
 
+});
+
+
+/* =========================
+   CATEGORY TILES
+========================= */
+
+document.querySelectorAll(".categories a").forEach(link => {
+
+  link.addEventListener("click", function(e) {
+
+    const href = this.getAttribute("href");
+
+    if (!href || !href.startsWith("#")) return;
+
+    e.preventDefault();
+
+    let target = href.substring(1);
+
+    /*
+      Extra category links
+      go to their main section
+    */
+
+    if (
+      target === "anime-apps" ||
+      target === "anime-sites" ||
+      target === "anime-news"
+    ) {
+      target = "anime";
+    }
+
+    if (
+      target === "creator" ||
+      target === "youtube-news"
+    ) {
+      target = "youtube";
+    }
+
+    if (
+      target === "reviews" ||
+      target === "tools"
+    ) {
+      target = "more";
+    }
+
+    showPage(target);
+
+    history.pushState(
+      null,
+      "",
+      "#" + target
+    );
   });
 
 });
@@ -402,118 +401,26 @@ document.querySelectorAll(".nav nav a").forEach(link => {
    BROWSER BACK / FORWARD
 ========================= */
 
-window.addEventListener("popstate", function() {
+window.addEventListener("popstate", () => {
 
   const page = location.hash
     ? location.hash.substring(1)
     : "home";
 
-  openPage(page);
+  showPage(page);
 
 });
 
 
 /* =========================
-   OPEN PAGE
+   INITIAL PAGE
 ========================= */
 
-function openPage(page) {
+const initialPage = location.hash
+  ? location.hash.substring(1)
+  : "home";
 
-  if (page === "games") {
-    showGames();
-  }
-
-  else if (page === "software") {
-    showSoftware();
-  }
-
-  else if (page === "wallpapers") {
-    showWallpapers();
-  }
-
-  else if (page === "anime") {
-    showAnime();
-  }
-
-  else if (page === "youtube") {
-    showYouTube();
-  }
-
-  else if (page === "support") {
-    showHelp();
-  }
-
-  else if (page === "more") {
-    showMore();
-  }
-
-  else {
-    showHome();
-  }
-
-}
-
-
-/* =========================
-   CATEGORY BOXES
-========================= */
-
-document.querySelectorAll(".categories a").forEach(link => {
-
-  link.addEventListener("click", function(e) {
-
-    e.preventDefault();
-
-    const target = this
-      .getAttribute("href")
-      .replace("#", "");
-
-    if (target === "games") {
-      showGames();
-      history.pushState(null, "", "#games");
-    }
-
-    else if (target === "software") {
-      showSoftware();
-      history.pushState(null, "", "#software");
-    }
-
-    else if (target === "wallpapers") {
-      showWallpapers();
-      history.pushState(null, "", "#wallpapers");
-    }
-
-    else if (
-      target === "anime" ||
-      target === "anime-apps" ||
-      target === "anime-sites" ||
-      target === "anime-news"
-    ) {
-      showAnime();
-      history.pushState(null, "", "#anime");
-    }
-
-    else if (
-      target === "youtube" ||
-      target === "creator" ||
-      target === "youtube-news"
-    ) {
-      showYouTube();
-      history.pushState(null, "", "#youtube");
-    }
-
-    else if (
-      target === "more" ||
-      target === "reviews" ||
-      target === "tools"
-    ) {
-      showMore();
-      history.pushState(null, "", "#more");
-    }
-
-  });
-
-});
+showPage(initialPage);
 
 
 /* =========================
@@ -524,7 +431,7 @@ const search = document.getElementById("globalSearch");
 
 if (search) {
 
-  search.addEventListener("keydown", function(e) {
+  search.addEventListener("keydown", e => {
 
     if (e.key !== "Enter") return;
 
@@ -534,54 +441,51 @@ if (search) {
 
     if (!q) return;
 
-    const headings = [
-      ...document.querySelectorAll("h2, h3")
-    ];
-
-    const found = headings.find(x =>
+    const found = [
+      ...document.querySelectorAll("h2,h3")
+    ].find(x =>
       x.textContent
         .toLowerCase()
         .includes(q)
     );
 
-    if (!found) {
-      alert("Nothing found.");
-      return;
+    if (found) {
+
+      const parentSection =
+        found.closest("section");
+
+      if (parentSection) {
+
+        let id = parentSection.id;
+
+        if (id === "creator" || id === "reviews") {
+          id = "more";
+        }
+
+        if (
+          id === "anime-apps" ||
+          id === "anime-sites" ||
+          id === "anime-news"
+        ) {
+          id = "anime";
+        }
+
+        if (
+          id === "youtube-news" ||
+          id === "tools"
+        ) {
+          id = "youtube";
+        }
+
+        showPage(id);
+
+        history.pushState(
+          null,
+          "",
+          "#" + id
+        );
+      }
     }
-
-    const section = found.closest("section");
-
-    if (!section) return;
-
-    let page = section.id;
-
-    if (
-      page === "creator" ||
-      page === "reviews" ||
-      page === "tools"
-    ) {
-      page = "more";
-    }
-
-    if (
-      page === "anime-apps" ||
-      page === "anime-sites" ||
-      page === "anime-news"
-    ) {
-      page = "anime";
-    }
-
-    if (page === "youtube-news") {
-      page = "youtube";
-    }
-
-    openPage(page);
-
-    history.pushState(
-      null,
-      "",
-      "#" + page
-    );
 
   });
 
@@ -589,28 +493,18 @@ if (search) {
 
 
 /* =========================
-   THEME
+   THEME BUTTON
 ========================= */
 
-const themeBtn = document.getElementById("themeBtn");
+const themeBtn =
+  document.getElementById("themeBtn");
 
 if (themeBtn) {
 
-  themeBtn.onclick = function() {
+  themeBtn.onclick = () => {
 
     document.body.classList.toggle("bright");
 
   };
 
 }
-
-
-/* =========================
-   START PAGE
-========================= */
-
-const startingPage = location.hash
-  ? location.hash.substring(1)
-  : "home";
-
-openPage(startingPage);
