@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://solohumangaming.github.io/solohuman.github.io/sitemap.xml
