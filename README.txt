@@ -1,12 +1,17 @@
-SOLO HUMAN PORTAL
+SOLO HUMAN — FINAL GAMES HUB
 
-Open index.html to preview.
+1. Extract this ZIP.
+2. Upload/replace these files in the ROOT of your GitHub Pages repository:
+   - index.html
+   - style.css
+   - script.js
+   - games.html
+   - games.js
+   - sh-logo.png
+   - assets/ (entire folder)
 
-EDITING:
-- Replace # in script.js/card links with your official or legally shareable URLs.
-- Replace text, categories and cards directly in index.html/script.js.
-- sh-logo.png is the supplied SH logo.
+3. Commit the changes.
+4. Open:
+   https://solohumangaming.github.io/solohuman.github.io/games.html
 
-FREE HOSTING:
-Upload these files to a static host such as GitHub Pages or Cloudflare Pages.
-The website is a front end; it does not provide 500 GB of file storage.
+Games Hub is self-contained, so it does not depend on the homepage JavaScript.
