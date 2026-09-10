@@ -12,22 +12,27 @@ a{text-decoration:none;color:inherit}.wall-nav{height:74px;background:#08090d;bo
 .toolbar{padding:28px 5% 10px;background:#06070a}.filter-row,.genre-row{display:flex;gap:10px;flex-wrap:wrap}.filter-row{margin-bottom:18px}.pill{border:1px solid #2a303a;background:#0c0f14;color:#aeb5c2;border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer}.pill:hover,.pill.active{background:#fff;color:#090b0f;border-color:#fff}.genre{border:1px solid #222832;background:#0a0c10;color:#8f98a8;border-radius:8px;padding:9px 14px;cursor:pointer}.genre:hover,.genre.active{color:#fff;border-color:#697281;background:#13171e}
 .results{padding:22px 5% 70px}.resultbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;color:#87909f;font-size:13px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.card{background:#0c0f14;border:1px solid #1e242d;border-radius:14px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-4px);border-color:#414a58}.thumb{height:205px;position:relative;overflow:hidden;background:#111}.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:.3s}.card:hover .thumb img{transform:scale(1.04)}.badge{position:absolute;top:12px;left:12px;background:#fff;color:#090b0f;border-radius:6px;padding:6px 9px;font-size:10px;font-weight:900}.fav{position:absolute;right:12px;top:10px;border:1px solid #3a414c;background:rgba(5,7,10,.72);color:#fff;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:18px}.fav.saved{background:#fff;color:#111}.body{padding:16px}.body h3{margin:0 0 7px;font-size:18px}.rating{font-size:12px;color:#ffd166;margin-bottom:9px}.body p{color:#8e98a7;font-size:13px;line-height:1.55;min-height:40px;margin:0 0 14px}.meta{display:flex;justify-content:space-between;gap:8px;color:#697381;font-size:11px;margin-bottom:14px}.view{display:block;border:1px solid #2b323c;border-radius:8px;text-align:center;padding:10px;font-weight:800;font-size:13px}.view:hover{background:#fff;color:#080a0d}.hidden{display:none!important}
 footer{border-top:1px solid #1b2028;padding:28px 5%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#6f7886;font-size:12px}.footer-brand{display:flex;align-items:center;gap:8px;color:#cfd5de}.footer-brand img{width:28px;height:28px;object-fit:contain}
-@media(max-width:1050px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.wall-nav nav{gap:13px}}@media(max-width:760px){.wall-nav{height:auto;padding:16px 5%;align-items:flex-start;gap:14px}.wall-nav nav{flex-wrap:wrap;justify-content:flex-end;gap:10px 15px}.wall-nav nav a.active:after{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:54px}}@media(max-width:520px){.grid{grid-template-columns:1fr}.thumb{height:220px}.stats{gap:24px}.hero h1{font-size:44px}}
+.wall-nav{height:74px;position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:28px;padding:0 4%;background:rgba(5,8,13,.92);backdrop-filter:blur(18px);border-bottom:1px solid #202832}
+.wall-nav .brand{display:flex;align-items:center;gap:10px;min-width:260px;font-weight:900;letter-spacing:1px}
+.wall-nav .brand img{width:43px;height:43px;object-fit:cover;border-radius:10px}
+.wall-nav .brand span{font-size:23px;font-weight:900;letter-spacing:1px}.wall-nav .brand i{font-style:normal;color:#e92c2c}.wall-nav .brand small{display:block;font-size:7px;color:#8793a0;letter-spacing:2px;margin-top:2px}
+.wall-nav nav{display:flex;gap:19px;flex:1;justify-content:center;align-items:center;font-size:13px;font-weight:700;color:#aeb8c4}
+.wall-nav nav a{font-size:13px;color:#aeb8c4;padding:29px 0;position:relative}.wall-nav nav a:hover,.wall-nav nav a.active{color:#fff}.wall-nav nav a.active:after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:#ef3030}
+.wall-actions{display:flex;gap:10px;flex:0 0 auto}.wall-actions input{width:205px;background:#0b1119;border:1px solid #35404c;border-radius:22px;padding:10px 14px;color:#fff;outline:none}.wall-actions button{border:0;background:transparent;color:#d8e0e7;font-size:22px;cursor:pointer}
+@media(max-width:1050px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.wall-nav nav{display:none}}@media(max-width:760px){.wall-nav{height:auto;padding:16px 5%;align-items:flex-start;gap:14px}.wall-nav nav{flex-wrap:wrap;justify-content:flex-end;gap:10px 15px}.wall-nav nav a.active:after{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:54px}}@media(max-width:520px){.grid{grid-template-columns:1fr}.thumb{height:220px}.stats{gap:24px}.hero h1{font-size:44px}}
 </style>
 </head>
 <body>
 <header class="wall-nav">
-<a class="brand" href="index.html"><img src="sh-logo.png" alt="Solo Human"><span>SOLO HUMAN</span></a>
-<nav>
-<a href="index.html">Home</a>
-<a href="games.html">Games</a>
-<a href="software.html">Software</a>
-<a class="active" href="wallpapers.html">Wallpapers</a>
-<a href="index.html#anime">Anime</a>
-<a href="index.html#youtube">YouTube</a>
-<a href="index.html#support">Help</a>
-<a href="index.html#more">More</a>
-</nav>
+  <a class="brand" href="index.html">
+    <img src="sh-logo.png" alt="SH">
+    <span>SOLO <i>HUMAN</i><small>GAMING • TECH • ANIME • MORE</small></span>
+  </a>
+  <nav>
+    <a href="index.html">Home</a><a href="games.html">Games</a><a href="software.html">Software</a>
+    <a class="active" href="wallpapers.html">Wallpapers</a><a href="index.html#anime">Anime</a><a href="index.html#youtube">YouTube</a><a href="index.html#support">Help</a><a href="index.html#more">More</a>
+  </nav>
+  <div class="wall-actions"><input id="wallSearch" placeholder="Search anything..."><button id="wallTheme" aria-label="Toggle theme">☼</button></div>
 </header>
 <div class="spacer"></div>
 
@@ -99,5 +104,12 @@ footer{border-top:1px solid #1b2028;padding:28px 5%;display:flex;justify-content
 
 <footer><div class="footer-brand"><img src="sh-logo.png" alt=""><b>SOLO HUMAN</b></div><span>GAMING • TECH • ANIME • WALLPAPERS</span><span>© 2026 Solo Human</span></footer>
 <script src="wallpaper.js"></script>
+
+<script>
+const ws=document.getElementById("wallSearch");
+if(ws){ws.addEventListener("keydown",e=>{if(e.key!=="Enter")return;const q=e.target.value.toLowerCase().trim();if(!q)return;const hit=[...document.querySelectorAll("h3")].find(x=>x.textContent.toLowerCase().includes(q));if(hit)hit.scrollIntoView({behavior:"smooth",block:"center"});});}
+const wt=document.getElementById("wallTheme");
+if(wt)wt.addEventListener("click",()=>document.body.classList.toggle("bright"));
+</script>
 </body>
 </html>

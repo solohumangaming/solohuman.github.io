@@ -326,12 +326,9 @@ document.querySelectorAll(".nav nav a").forEach(link => {
 
   link.addEventListener("click", function(e) {
 
-    const href = this.getAttribute("href");
-    if (!href || !href.startsWith("#")) return;
-
     e.preventDefault();
 
-    const target = href.substring(1);
+    const target = this.getAttribute("href").replace("#", "");
 
     showPage(target);
 
