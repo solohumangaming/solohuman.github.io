@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Games Hub — Solo Human</title><link rel="icon" href="sh-logo.png"><style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#05080d;color:#edf1f5;font-family:Inter,Segoe UI,Arial,sans-serif}
+a{text-decoration:none;color:inherit}
+.games-nav{height:80px;display:flex;align-items:center;gap:28px;padding:0 4%;background:#05080d;border-bottom:1px solid #202832}
+.games-brand{display:flex;align-items:center;gap:10px;min-width:330px}
+.games-brand img{width:52px;height:52px;object-fit:cover;border-radius:10px}
+.games-brand span{font-size:28px;font-weight:900;letter-spacing:1px}
+.games-brand i{font-style:normal;color:#ed3030}
+.games-brand small{display:block;font-size:8px;color:#8793a0;letter-spacing:2px;margin-top:2px}
+.games-nav nav{display:flex;gap:24px;flex:1;justify-content:center}
+.games-nav nav a{font-size:14px;color:#aeb8c4;padding:31px 0;position:relative}
+.games-nav nav a:hover,.games-nav nav a.active{color:#fff}
+.games-nav nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#ef3030}
+.games-actions{display:flex;align-items:center;gap:10px}
+.games-actions input{width:225px;background:#0b1119;border:1px solid #35404c;border-radius:24px;padding:11px 15px;color:#fff;outline:none;font-size:14px}
+.games-actions span{font-size:25px;color:#d8e0e7}
+.games-spacer{height:60px;background:#05080d;border-bottom:1px solid #111821}
+
+.games-hero{position:relative;min-height:358px;padding:52px 4.5% 48px;overflow:hidden;border-bottom:1px solid #202832;background:radial-gradient(circle at 82% 40%,rgba(65,60,180,.16),transparent 30%),radial-gradient(circle at 17% 55%,rgba(190,25,75,.17),transparent 38%),linear-gradient(105deg,#190b14 0%,#0c0d19 48%,#080c18 100%)}
+.games-hero:after{content:"";position:absolute;right:0;top:0;width:5px;height:100%;background:#ff3036}
+.games-hero-inner{max-width:1510px;margin:auto}
+.games-kicker{display:flex;align-items:center;gap:13px;margin-bottom:12px;color:#ff3036;font-size:14px;font-weight:900;letter-spacing:1.5px}
+.games-kicker-icon{display:grid;place-items:center;width:46px;height:46px;border:1px solid #29303b;border-radius:50%;font-size:21px}
+.games-hero h1{margin:0 0 12px;font-size:clamp(48px,4vw,62px);line-height:1;font-weight:900;letter-spacing:-2px}
+.games-hero p{max-width:760px;margin:0;color:#93a0b0;font-size:20px;line-height:1.5}
+.games-stats{display:flex;flex-wrap:wrap;gap:16px;margin-top:28px}
+.games-stat{display:flex;align-items:center;gap:10px;padding:10px 18px;border:1px solid #26313e;border-radius:13px;background:#09111a;font-size:16px}
+.games-stat span{font-size:18px}
+.games-content{max-width:1510px;margin:auto;padding:34px 4.5% 70px}
+.games-filters{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:35px}
+.price-filter{display:flex;align-items:center;padding:5px;gap:3px;border:1px solid #29333f;border-radius:15px;background:#09111a}
+.game-filter,.genre-filter{border:0;color:#9eacbd;background:transparent;cursor:pointer;font:inherit}
+.game-filter{padding:11px 20px;border-radius:11px;font-weight:700}
+.game-filter.active{color:#fff;background:#ff3036}
+.genre-filters{display:flex;flex-wrap:wrap;gap:8px}
+.genre-filter{padding:12px 17px;border:1px solid #29333f;border-radius:12px;background:#09111a;font-size:14px}
+.genre-filter.active{color:#ff3036}
+.games-result{margin-bottom:21px;color:#8ea0b3;font-size:16px}
+.games-result b{color:#dfe5ec}
+.games-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.game-card{overflow:hidden;border:1px solid #26313e;border-radius:17px;background:#09111a;transition:.2s}
+.game-card:hover{transform:translateY(-4px);border-color:#3a4654}
+.game-art{position:relative;height:195px;overflow:hidden;background:#111923 center/cover no-repeat}
+.game-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.18))}
+.game-badge,.game-tag{position:absolute;top:10px;z-index:2;padding:5px 10px;border-radius:9px;font-size:11px;font-weight:900}
+.game-badge{left:10px}
+.game-tag{left:78px}
+.game-badge.free{color:#fff;background:#19ce6b}
+.game-badge.paid{color:#111;background:#ffd000}
+.game-tag{color:#fff;background:#ff3036}
+.favorite{position:absolute;top:10px;right:10px;z-index:3;width:36px;height:36px;border:1px solid rgba(255,255,255,.2);border-radius:50%;color:#fff;background:rgba(5,8,13,.55);cursor:pointer;font-size:22px}
+.favorite.saved{color:#ff4a4a}
+.game-body{padding:16px 18px 18px}
+.game-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.game-title-row h3{margin:0;color:#f2f5f8;font-size:17px}
+.game-rating{flex-shrink:0;color:#ffd000;font-size:14px;font-weight:800}
+.game-body>p{min-height:42px;margin:7px 0 13px;color:#8495a8;font-size:13px;line-height:1.45}
+.game-meta{display:flex;justify-content:space-between;margin-bottom:15px;color:#8da0b4;font-size:13px}
+.game-platforms{margin-bottom:17px;color:#8da0b4;font-size:13px}
+.game-details{display:block;width:100%;padding:10px;border:1px solid #27323e;border-radius:12px;text-align:center;color:#ff3036;font-size:14px;font-weight:800}
+.game-details:hover{color:#fff;background:#ff3036}
+.game-hidden{display:none!important}
+@media(max-width:1200px){.games-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.games-nav nav{gap:15px}.games-brand{min-width:270px}}
+@media(max-width:900px){.games-nav nav{display:none}.games-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.games-brand{min-width:auto}.games-actions input{width:170px}}
+@media(max-width:600px){.games-grid{grid-template-columns:1fr}.games-hero{padding:48px 6%}.games-content{padding-left:6%;padding-right:6%}.games-hero p{font-size:17px}.games-stat{width:100%}.games-filters{align-items:stretch;flex-direction:column}}
+</style></head>
+<body>
+<header class="games-nav">
+<a class="games-brand" href="index.html"><img src="sh-logo.png" alt="SH"><span>SOLO <i>HUMAN</i><small>GAMING • TECH • ANIME • MORE</small></span></a>
+<nav><a href="index.html">Home</a><a class="active" href="games.html">Games</a><a href="software.html">Software</a><a href="wallpapers.html">Wallpapers</a><a href="index.html#anime">Anime</a><a href="index.html#youtube">YouTube</a><a href="index.html#support">Help</a><a href="index.html#more">More</a></nav>
+<div class="games-actions"><input placeholder="Search anything..."><span>☼</span></div>
+</header>
+<div class="games-spacer"></div>
+<section class="games-hero"><div class="games-hero-inner">
+<div class="games-kicker"><span class="games-kicker-icon">✚</span> SOLO HUMAN</div>
+<h1>Games Hub</h1><p>Discover the best free &amp; paid games — handpicked, reviewed, and ready to download.</p>
+<div class="games-stats"><div class="games-stat"><span>🎁</span><strong>6 Free Games</strong></div><div class="games-stat"><span>🪙</span><strong>6 Paid Games</strong></div><div class="games-stat"><span>☆</span><strong>All Genres Covered</strong></div></div>
+</div></section>
+<main class="games-content">
+<div class="games-filters"><div class="price-filter"><button class="game-filter active" data-type="all">🎮 All</button><button class="game-filter" data-type="free">🎁 Free</button><button class="game-filter" data-type="paid">💎 Paid</button></div>
+<div class="genre-filters"><button class="genre-filter active" data-genre="all">All</button><button class="genre-filter" data-genre="Action">Action</button><button class="genre-filter" data-genre="RPG">RPG</button><button class="genre-filter" data-genre="Strategy">Strategy</button><button class="genre-filter" data-genre="FPS">FPS</button><button class="genre-filter" data-genre="Indie">Indie</button><button class="genre-filter" data-genre="Horror">Horror</button></div></div>
+<div class="games-result">Showing <b id="gameResultCount">12</b> games</div><div class="games-grid"><article class="game-card" data-type="free" data-genre="Action">
+<div class="game-art" style="background-image:url("assets/warframe.jpg")"><span class="game-badge free">FREE</span><span class="game-tag">HOT</span><button class="favorite">♡</button></div>
+<div class="game-body"><div class="game-title-row"><h3>Warframe</h3><span class="game-rating">☆ 4.7</span></div>
+<p>Free-to-play co-op action shooter with deep customization.</p><div class="game-meta"><span>Action</span><span>35 GB</span></div><div class="game-platforms">▣ PC / PS5 / Xbox</div>
+<a class="game-details" href="#">View Details →</a></div></article><article class="game-card" data-type="free" data-genre="RPG">
+<div class="game-art" style="background-image:url("assets/poe.jpg")"><span class="game-badge free">FREE</span><span class="game-tag">NEW</span><button class="favorite">♡</button></div>
+<div class="game-body"><div class="game-title-row"><h3>Path of Exile 2</h3><span class="game-rating">☆ 4.8</span></div>
+<p>Dark fantasy ARPG with brutal combat and deep skill trees.</p><div class="game-meta"><span>RPG</span><span>60 GB</span></div><div class="game-platforms">▣ PC / PS5</div>
+<a class="game-details" href="#">View Details →</a></div></article><article class="game-card" data-type="free" data-genre="RPG">
+<div class="game-art" style="background-image:url("assets/genshin.jpg")"><span class="game-badge free">FREE</span><button class="favorite">♡</button></div>
+<div class="game-body"><div class="game-title-row"><h3>Genshin Impact</h3><span class="game-rating">☆ 4.5</span></div>
+<p>Open-world anime RPG with gacha mechanics and stunning visuals.</p><div class="game-meta"><span>RPG</span><span>80 GB</span></div><div class="game-platforms">▣ PC / Mobile / PS5</div>
+<a class="game-details" href="#">View Details →</a></div></article><article class="game-card" data-type="free" data-genre="FPS">
+<div class="game-art" style="background-image:url("assets/apex.jpg")"><span class="game-badge free">FREE</span><button class="favorite">♡</button></div>
+<div class="game-body"><div class="game-title-row"><h3>Apex Legends</h3><span class="game-rating">☆ 4.4</span></div>
+<p>Fast-paced battle royale with unique legend abilities.</p><div class="game-meta"><span>FPS</span><span>22 GB</span></div><div class="game-platforms">▣ PC / Console</div>
+<a class="game-details" href="#">View Details →</a></div></article><article class="game-card" data-type="paid" data-genre="RPG">
+<div class="game-art" style="background-image:url("assets/elden.jpg")"><span class="game-badge paid">$59.99</span><span class="game-tag">MUST PLAY</span><button class="favorite">♡</button></div>
+<div class="game-body"><div class="game-title-row"><h3>Elden Ring</h3><span class="game-rating">☆ 4.9</span></div>
+<p>FromSoftware's masterpiece open-world action RPG.</p><div class="game-meta"><span>RPG</span><span>45 GB</span></div><div class="game-platforms">▣ PC / PS5 / Xbox</div>
+<a class="game-details" href="#">View Details →</a></div></article><article class="game-card" data-type="paid" data-genre="Action">
+<div class="game-art" style="background-image:url("assets/cyberpunk.jpg")"><span class="game-badge paid">$39.99</span><button class="favorite">♡</button></div>
+<div class="game-body"><div class="game-title-row"><h3>Cyberpunk 2077</h3><span class="game-rating">☆ 4.6</span></div>
+<p>Immersive open-world RPG set in a dystopian future city.</p><div class="game-meta"><span>Action</span><span>70 GB</span></div><div class="game-platforms">▣ PC / PS5 / Xbox</div>
+<a class="game-details" href="#">View Details →</a></div></article><article class="game-card" data-type="paid" data-genre="RPG">
+<div class="game-art" style="background-image:url("assets/bg3.jpg")"><span class="game-badge paid">$59.99</span><span class="game-tag">GOTY</span><button class="favorite">♡</button></div>
+<div class="game-body"><div class="game-title-row"><h3>Baldur's Gate 3</h3><span class="game-rating">☆ 4.9</span></div>
+<p>Award-winning D&D RPG with unmatched depth and freedom.</p><div class="game-meta"><span>RPG</span><span>150 GB</span></div><div class="game-platforms">▣ PC / PS5</div>
+<a class="game-details" href="#">View Details →</a></div></article><article class="game-card" data-type="paid" data-genre="Indie">
+<div class="game-art" style="background-image:url("assets/hollow.jpg")"><span class="game-badge paid">$14.99</span><button class="favorite">♡</button></div>
+<div class="game-body"><div class="game-title-row"><h3>Hollow Knight</h3><span class="game-rating">☆ 4.8</span></div>
+<p>Atmospheric metroidvania with challenging combat and lore.</p><div class="game-meta"><span>Indie</span><span>9 GB</span></div><div class="game-platforms">▣ PC / Switch / Console</div>
+<a class="game-details" href="#">View Details →</a></div></article><article class="game-card" data-type="free" data-genre="Action">
+<div class="game-art" style="background-image:url("assets/warframe.jpg")"><span class="game-badge free">FREE</span><span class="game-tag">NEW</span><button class="favorite">♡</button></div>
+<div class="game-body"><div class="game-title-row"><h3>Destiny 2</h3><span class="game-rating">☆ 4.6</span></div>
+<p>Action MMO shooter with powerful weapons and abilities.</p><div class="game-meta"><span>Action</span><span>105 GB</span></div><div class="game-platforms">▣ PC / PS5 / Xbox</div>
+<a class="game-details" href="#">View Details →</a></div></article><article class="game-card" data-type="free" data-genre="FPS">
+<div class="game-art" style="background-image:url("assets/apex.jpg")"><span class="game-badge free">FREE</span><button class="favorite">♡</button></div>
+<div class="game-body"><div class="game-title-row"><h3>The Finals</h3><span class="game-rating">☆ 4.5</span></div>
+<p>Fast competitive FPS built around destruction and teamwork.</p><div class="game-meta"><span>FPS</span><span>50 GB</span></div><div class="game-platforms">▣ PC / Console</div>
+<a class="game-details" href="#">View Details →</a></div></article><article class="game-card" data-type="paid" data-genre="Action">
+<div class="game-art" style="background-image:url("assets/cyberpunk.jpg")"><span class="game-badge paid">$39.99</span><button class="favorite">♡</button></div>
+<div class="game-body"><div class="game-title-row"><h3>Red Dead Redemption 2</h3><span class="game-rating">☆ 4.9</span></div>
+<p>Massive open-world western adventure with an unforgettable story.</p><div class="game-meta"><span>Action</span><span>150 GB</span></div><div class="game-platforms">▣ PC / PS5 / Xbox</div>
+<a class="game-details" href="#">View Details →</a></div></article><article class="game-card" data-type="paid" data-genre="Horror">
+<div class="game-art" style="background-image:url("assets/hollow.jpg")"><span class="game-badge paid">$39.99</span><span class="game-tag">HORROR</span><button class="favorite">♡</button></div>
+<div class="game-body"><div class="game-title-row"><h3>Resident Evil 4</h3><span class="game-rating">☆ 4.8</span></div>
+<p>A tense survival-horror adventure with modern action gameplay.</p><div class="game-meta"><span>Horror</span><span>67 GB</span></div><div class="game-platforms">▣ PC / PS5 / Xbox</div>
+<a class="game-details" href="#">View Details →</a></div></article></div>
+</main><script>
+document.addEventListener("DOMContentLoaded",function(){
+  const cards=[...document.querySelectorAll(".game-card")];
+  const count=document.getElementById("gameResultCount");
+  let type="all",genre="all";
+  function render(){
+    let n=0;
+    cards.forEach(c=>{
+      const ok=(type==="all"||c.dataset.type===type)&&(genre==="all"||c.dataset.genre===genre);
+      c.classList.toggle("game-hidden",!ok);
+      if(ok)n++;
+    });
+    count.textContent=n;
+  }
+  document.querySelectorAll(".game-filter").forEach(b=>b.addEventListener("click",()=>{
+    document.querySelectorAll(".game-filter").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active"); type=b.dataset.type; render();
+  }));
+  document.querySelectorAll(".genre-filter").forEach(b=>b.addEventListener("click",()=>{
+    document.querySelectorAll(".genre-filter").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active"); genre=b.dataset.genre; render();
+  }));
+  document.querySelectorAll(".favorite").forEach(b=>b.addEventListener("click",()=>{
+    b.classList.toggle("saved"); b.textContent=b.classList.contains("saved")?"♥":"♡";
+  }));
+  render();
+});
+</script></body></html>

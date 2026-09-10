@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wallpaper Hub — Solo Human</title>
+<meta name="description" content="Solo Human Wallpaper Hub — 4K, gaming, anime, nature and minimal wallpapers.">
+<style>
+html{overflow-y:scroll}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#06070a;overflow-x:hidden;color:#f5f7fb;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{text-decoration:none;color:inherit}.wall-nav{height:74px;background:#08090d;border-bottom:1px solid #1d2027;display:flex;align-items:center;justify-content:space-between;padding:0 4.5%;position:sticky;top:0;z-index:20}.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.08em}.brand img{width:38px;height:38px;object-fit:contain}.brand span{font-size:17px}.wall-nav nav{display:flex;gap:24px;align-items:center;font-size:14px;font-weight:700;color:#aeb5c2}.wall-nav nav a:hover,.wall-nav nav a.active{color:#fff}.wall-nav nav a.active{position:relative}.wall-nav nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:-25px;height:2px;background:#ef3340}
+.spacer{height:22px;background:#000}.hero{padding:76px 5% 62px;background:radial-gradient(circle at 78% 25%,rgba(38,91,170,.35),transparent 28%),linear-gradient(125deg,#16070a,#090d17 52%,#0a101d);border-bottom:1px solid #1b2029}.wrap{max-width:1250px;margin:auto}.kicker{font-size:12px;letter-spacing:.18em;color:#f04b56;font-weight:900;margin:0 0 12px}.hero h1{font-size:clamp(42px,6vw,76px);line-height:.98;margin:0 0 18px;letter-spacing:-.04em}.hero p{max-width:720px;color:#aeb6c4;font-size:17px;line-height:1.7;margin:0}.stats{display:flex;gap:46px;margin-top:34px;flex-wrap:wrap}.stat b{display:block;font-size:25px}.stat span{font-size:12px;color:#7f8998;text-transform:uppercase;letter-spacing:.08em}
+.toolbar{padding:28px 5% 10px;background:#06070a}.filter-row,.genre-row{display:flex;gap:10px;flex-wrap:wrap}.filter-row{margin-bottom:18px}.pill{border:1px solid #2a303a;background:#0c0f14;color:#aeb5c2;border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer}.pill:hover,.pill.active{background:#fff;color:#090b0f;border-color:#fff}.genre{border:1px solid #222832;background:#0a0c10;color:#8f98a8;border-radius:8px;padding:9px 14px;cursor:pointer}.genre:hover,.genre.active{color:#fff;border-color:#697281;background:#13171e}
+.results{padding:22px 5% 70px}.resultbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;color:#87909f;font-size:13px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.card{background:#0c0f14;border:1px solid #1e242d;border-radius:14px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-4px);border-color:#414a58}.thumb{height:205px;position:relative;overflow:hidden;background:#111}.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:.3s}.card:hover .thumb img{transform:scale(1.04)}.badge{position:absolute;top:12px;left:12px;background:#fff;color:#090b0f;border-radius:6px;padding:6px 9px;font-size:10px;font-weight:900}.fav{position:absolute;right:12px;top:10px;border:1px solid #3a414c;background:rgba(5,7,10,.72);color:#fff;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:18px}.fav.saved{background:#fff;color:#111}.body{padding:16px}.body h3{margin:0 0 7px;font-size:18px}.rating{font-size:12px;color:#ffd166;margin-bottom:9px}.body p{color:#8e98a7;font-size:13px;line-height:1.55;min-height:40px;margin:0 0 14px}.meta{display:flex;justify-content:space-between;gap:8px;color:#697381;font-size:11px;margin-bottom:14px}.view{display:block;border:1px solid #2b323c;border-radius:8px;text-align:center;padding:10px;font-weight:800;font-size:13px}.view:hover{background:#fff;color:#080a0d}.hidden{display:none!important}
+footer{border-top:1px solid #1b2028;padding:28px 5%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#6f7886;font-size:12px}.footer-brand{display:flex;align-items:center;gap:8px;color:#cfd5de}.footer-brand img{width:28px;height:28px;object-fit:contain}
+.wall-nav{height:74px;position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:28px;padding:0 4%;background:rgba(5,8,13,.92);backdrop-filter:blur(18px);border-bottom:1px solid #202832}
+.wall-nav .brand{display:flex;align-items:center;gap:10px;min-width:260px;font-weight:900;letter-spacing:1px}
+.wall-nav .brand img{width:43px;height:43px;object-fit:cover;border-radius:10px}
+.wall-nav .brand span{font-size:23px;font-weight:900;letter-spacing:1px}.wall-nav .brand i{font-style:normal;color:#e92c2c}.wall-nav .brand small{display:block;font-size:7px;color:#8793a0;letter-spacing:2px;margin-top:2px}
+.wall-nav nav{display:flex;gap:19px;flex:1;justify-content:center;align-items:center;font-size:13px;font-weight:700;color:#aeb8c4}
+.wall-nav nav a{font-size:13px;color:#aeb8c4;padding:29px 0;position:relative}.wall-nav nav a:hover,.wall-nav nav a.active{color:#fff}.wall-nav nav a.active:after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:#ef3030}
+.wall-actions{display:flex;gap:10px;flex:0 0 auto}.wall-actions input{width:205px;background:#0b1119;border:1px solid #35404c;border-radius:22px;padding:10px 14px;color:#fff;outline:none}.wall-actions button{border:0;background:transparent;color:#d8e0e7;font-size:22px;cursor:pointer}
+@media(max-width:1050px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.wall-nav nav{display:none}}@media(max-width:760px){.wall-nav{height:auto;padding:16px 5%;align-items:flex-start;gap:14px}.wall-nav nav{flex-wrap:wrap;justify-content:flex-end;gap:10px 15px}.wall-nav nav a.active:after{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:54px}}@media(max-width:520px){.grid{grid-template-columns:1fr}.thumb{height:220px}.stats{gap:24px}.hero h1{font-size:44px}}
+</style>
+</head>
+<body>
+<header class="wall-nav">
+  <a class="brand" href="index.html">
+    <img src="sh-logo.png" alt="SH">
+    <span>SOLO <i>HUMAN</i><small>GAMING • TECH • ANIME • MORE</small></span>
+  </a>
+  <nav>
+    <a href="index.html">Home</a><a href="games.html">Games</a><a href="software.html">Software</a>
+    <a class="active" href="wallpapers.html">Wallpapers</a><a href="index.html#anime">Anime</a><a href="index.html#youtube">YouTube</a><a href="index.html#support">Help</a><a href="index.html#more">More</a>
+  </nav>
+  <div class="wall-actions"><input id="wallSearch" placeholder="Search anything..."><button id="wallTheme" aria-label="Toggle theme">☼</button></div>
+</header>
+<div class="spacer"></div>
+
+<section class="hero">
+<div class="wrap">
+<p class="kicker">✚ SOLO HUMAN</p>
+<h1>Wallpaper Hub</h1>
+<p>Discover stunning 4K & HD wallpapers — gaming, anime, nature, cars, space and minimal backgrounds for your desktop and mobile.</p>
+<div class="stats">
+<div class="stat"><b>12+</b><span>Featured Wallpapers</span></div>
+<div class="stat"><b>4K</b><span>Ultra HD Ready</span></div>
+<div class="stat"><b>6</b><span>Categories Covered</span></div>
+</div>
+</div>
+</section>
+
+<section class="toolbar">
+<div class="wrap">
+<div class="filter-row">
+<button class="pill active type-filter" data-type="all">All</button>
+<button class="pill type-filter" data-type="desktop">Desktop</button>
+<button class="pill type-filter" data-type="mobile">Mobile</button>
+<button class="pill type-filter" data-type="4k">4K</button>
+</div>
+<div class="genre-row">
+<button class="genre active genre-filter" data-genre="all">All</button>
+<button class="genre genre-filter" data-genre="gaming">Gaming</button>
+<button class="genre genre-filter" data-genre="anime">Anime</button>
+<button class="genre genre-filter" data-genre="nature">Nature</button>
+<button class="genre genre-filter" data-genre="cars">Cars</button>
+<button class="genre genre-filter" data-genre="space">Space</button>
+<button class="genre genre-filter" data-genre="minimal">Minimal</button>
+</div>
+</div>
+</section>
+
+<section class="results">
+<div class="wrap">
+<div class="resultbar"><span><b id="wallResultCount">12</b> wallpapers</span><span>Curated by Solo Human</span></div>
+<div class="grid">
+
+<article class="card" data-type="4k" data-genre="gaming"><div class="thumb"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=85" alt="Gaming setup wallpaper"><span class="badge">4K</span><button class="fav">♡</button></div><div class="body"><h3>Neon Gaming Setup</h3><div class="rating">★ 4.9</div><p>Dark RGB gaming atmosphere for a powerful desktop look.</p><div class="meta"><span>4K UHD</span><span>Desktop</span></div><a class="view" href="https://unsplash.com/" target="_blank" rel="noopener">View Wallpaper →</a></div></article>
+
+<article class="card" data-type="desktop" data-genre="gaming"><div class="thumb"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=85" alt="Gaming controller wallpaper"><span class="badge">GAMING</span><button class="fav">♡</button></div><div class="body"><h3>Gaming Night</h3><div class="rating">★ 4.8</div><p>Clean gaming-themed background with a cinematic dark mood.</p><div class="meta"><span>HD</span><span>Desktop</span></div><a class="view" href="https://unsplash.com/" target="_blank" rel="noopener">View Wallpaper →</a></div></article>
+
+<article class="card" data-type="mobile" data-genre="anime"><div class="thumb"><img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=900&q=85" alt="Anime style wallpaper"><span class="badge">MOBILE</span><button class="fav">♡</button></div><div class="body"><h3>Anime Sunset</h3><div class="rating">★ 4.9</div><p>Warm cinematic anime-inspired scenery for phone screens.</p><div class="meta"><span>QHD</span><span>Mobile</span></div><a class="view" href="https://unsplash.com/" target="_blank" rel="noopener">View Wallpaper →</a></div></article>
+
+<article class="card" data-type="4k" data-genre="nature"><div class="thumb"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85" alt="Mountain landscape wallpaper"><span class="badge">4K</span><button class="fav">♡</button></div><div class="body"><h3>Mountain Escape</h3><div class="rating">★ 4.8</div><p>Wide mountain landscape with a clean cinematic composition.</p><div class="meta"><span>4K UHD</span><span>Desktop</span></div><a class="view" href="https://unsplash.com/" target="_blank" rel="noopener">View Wallpaper →</a></div></article>
+
+<article class="card" data-type="desktop" data-genre="cars"><div class="thumb"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85" alt="Sports car wallpaper"><span class="badge">CARS</span><button class="fav">♡</button></div><div class="body"><h3>Midnight Supercar</h3><div class="rating">★ 4.9</div><p>Moody performance-car wallpaper with a premium feel.</p><div class="meta"><span>4K</span><span>Desktop</span></div><a class="view" href="https://unsplash.com/" target="_blank" rel="noopener">View Wallpaper →</a></div></article>
+
+<article class="card" data-type="mobile" data-genre="space"><div class="thumb"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=900&q=85" alt="Space wallpaper"><span class="badge">SPACE</span><button class="fav">♡</button></div><div class="body"><h3>Deep Space</h3><div class="rating">★ 4.9</div><p>Minimal cosmic background for a futuristic mobile setup.</p><div class="meta"><span>QHD</span><span>Mobile</span></div><a class="view" href="https://unsplash.com/" target="_blank" rel="noopener">View Wallpaper →</a></div></article>
+
+<article class="card" data-type="4k" data-genre="minimal"><div class="thumb"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=85" alt="Minimal snowy mountain wallpaper"><span class="badge">4K</span><button class="fav">♡</button></div><div class="body"><h3>Minimal Winter</h3><div class="rating">★ 4.7</div><p>Simple snowy landscape with plenty of clean negative space.</p><div class="meta"><span>4K UHD</span><span>Desktop</span></div><a class="view" href="https://unsplash.com/" target="_blank" rel="noopener">View Wallpaper →</a></div></article>
+
+<article class="card" data-type="desktop" data-genre="nature"><div class="thumb"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85" alt="Forest lake wallpaper"><span class="badge">NATURE</span><button class="fav">♡</button></div><div class="body"><h3>Forest Lake</h3><div class="rating">★ 4.8</div><p>Peaceful forest and lake scene for a calm desktop.</p><div class="meta"><span>HD</span><span>Desktop</span></div><a class="view" href="https://unsplash.com/" target="_blank" rel="noopener">View Wallpaper →</a></div></article>
+
+<article class="card" data-type="mobile" data-genre="cars"><div class="thumb"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85" alt="Car wallpaper"><span class="badge">MOBILE</span><button class="fav">♡</button></div><div class="body"><h3>Street Machine</h3><div class="rating">★ 4.7</div><p>Bold street-car composition sized for modern phone screens.</p><div class="meta"><span>QHD</span><span>Mobile</span></div><a class="view" href="https://unsplash.com/" target="_blank" rel="noopener">View Wallpaper →</a></div></article>
+
+<article class="card" data-type="4k" data-genre="space"><div class="thumb"><img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=85" alt="Galaxy wallpaper"><span class="badge">4K</span><button class="fav">♡</button></div><div class="body"><h3>Galaxy Drift</h3><div class="rating">★ 4.9</div><p>Deep-color galaxy background for an immersive desktop.</p><div class="meta"><span>4K UHD</span><span>Desktop</span></div><a class="view" href="https://unsplash.com/" target="_blank" rel="noopener">View Wallpaper →</a></div></article>
+
+<article class="card" data-type="mobile" data-genre="minimal"><div class="thumb"><img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85" alt="Minimal leaf wallpaper"><span class="badge">MINIMAL</span><button class="fav">♡</button></div><div class="body"><h3>Clean Green</h3><div class="rating">★ 4.6</div><p>A simple organic background for a clean phone setup.</p><div class="meta"><span>QHD</span><span>Mobile</span></div><a class="view" href="https://unsplash.com/" target="_blank" rel="noopener">View Wallpaper →</a></div></article>
+
+<article class="card" data-type="desktop" data-genre="anime"><div class="thumb"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=85" alt="Night sky wallpaper"><span class="badge">ANIME</span><button class="fav">♡</button></div><div class="body"><h3>Moonlit Night</h3><div class="rating">★ 4.8</div><p>Dreamy night-sky aesthetic that fits anime-inspired setups.</p><div class="meta"><span>HD</span><span>Desktop</span></div><a class="view" href="https://unsplash.com/" target="_blank" rel="noopener">View Wallpaper →</a></div></article>
+
+</div>
+</div>
+</section>
+
+<footer><div class="footer-brand"><img src="sh-logo.png" alt=""><b>SOLO HUMAN</b></div><span>GAMING • TECH • ANIME • WALLPAPERS</span><span>© 2026 Solo Human</span></footer>
+<script src="wallpaper.js"></script>
+
+<script>
+const ws=document.getElementById("wallSearch");
+if(ws){ws.addEventListener("keydown",e=>{if(e.key!=="Enter")return;const q=e.target.value.toLowerCase().trim();if(!q)return;const hit=[...document.querySelectorAll("h3")].find(x=>x.textContent.toLowerCase().includes(q));if(hit)hit.scrollIntoView({behavior:"smooth",block:"center"});});}
+const wt=document.getElementById("wallTheme");
+if(wt)wt.addEventListener("click",()=>document.body.classList.toggle("bright"));
+</script>
+</body>
+</html>
