@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
 <title>Wallpaper Hub — Solo Human</title>
 <meta name="description" content="Solo Human Wallpaper Hub — 4K, gaming, anime, nature and minimal wallpapers.">
 <style>
@@ -21,27 +20,19 @@ footer{border-top:1px solid #1b2028;padding:28px 5%;display:flex;justify-content
 .wall-nav nav a{font-size:13px;color:#aeb8c4;padding:29px 0;position:relative}.wall-nav nav a:hover,.wall-nav nav a.active{color:#fff}.wall-nav nav a.active:after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:#ef3030}
 .wall-actions{display:flex;gap:10px;flex:0 0 auto}.wall-actions input{width:205px;background:#0b1119;border:1px solid #35404c;border-radius:22px;padding:10px 14px;color:#fff;outline:none}.wall-actions button{border:0;background:transparent;color:#d8e0e7;font-size:22px;cursor:pointer}
 @media(max-width:1050px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.wall-nav nav{display:none}}@media(max-width:760px){.wall-nav{height:auto;padding:16px 5%;align-items:flex-start;gap:14px}.wall-nav nav{flex-wrap:wrap;justify-content:flex-end;gap:10px 15px}.wall-nav nav a.active:after{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:54px}}@media(max-width:520px){.grid{grid-template-columns:1fr}.thumb{height:220px}.stats{gap:24px}.hero h1{font-size:44px}}
-
-/* Shared navbar: exactly the same dimensions, typography and spacing as index.html */
-.nav{height:74px;position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:28px;padding:0 4%;background:rgba(5,8,13,.92);backdrop-filter:blur(18px);border-bottom:1px solid #202832}
-.nav .brand{display:flex;align-items:center;gap:10px;min-width:260px;font-weight:400;letter-spacing:normal}
-.nav .brand img{width:43px;height:43px;object-fit:cover;border-radius:10px}
-.nav .brand span{font-size:23px;font-weight:900;letter-spacing:1px}.nav .brand i{font-style:normal;color:#e92c2c}.nav .brand small{display:block;font-size:7px;color:#8793a0;letter-spacing:2px;margin-top:2px}
-.nav nav{display:flex;gap:19px;flex:1;justify-content:center;align-items:stretch;font-size:initial;font-weight:initial;color:initial}
-.nav nav a{font-size:13px;color:#aeb8c4;padding:29px 0;position:relative}.nav nav a:hover,.nav nav a.active{color:#fff}.nav nav a.active:after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:#ef3030}
-.nav .actions{display:flex;gap:10px}.nav .actions input{width:205px;background:#0b1119;border:1px solid #35404c;border-radius:22px;padding:10px 14px;color:#fff;outline:none}.nav .actions button{border:0;background:transparent;color:#d8e0e7;font-size:22px;cursor:pointer}
-@media(max-width:1050px){.nav nav{display:none}}
-@media(max-width:650px){.nav{height:62px}.nav .brand{min-width:auto}.nav .brand span{font-size:17px}.nav .brand small{display:none}.nav .brand img{width:36px;height:36px}.nav .actions input{display:none}}
 </style>
 </head>
 <body>
-<header class="nav">
-  <a class="brand" href="index.html"><img src="sh-logo.png" alt="SH"><span>SOLO <i>HUMAN</i><small>GAMING • TECH • ANIME • MORE</small></span></a>
+<header class="wall-nav">
+  <a class="brand" href="index.html">
+    <img src="sh-logo.png" alt="SH">
+    <span>SOLO <i>HUMAN</i><small>GAMING • TECH • ANIME • MORE</small></span>
+  </a>
   <nav>
     <a href="index.html">Home</a><a href="games.html">Games</a><a href="software.html">Software</a>
     <a class="active" href="wallpapers.html">Wallpapers</a><a href="index.html#anime">Anime</a><a href="index.html#youtube">YouTube</a><a href="index.html#support">Help</a><a href="index.html#more">More</a>
   </nav>
-  <div class="actions"><input id="wallSearch" placeholder="Search anything..."><button id="wallTheme" aria-label="Toggle theme">☼</button></div>
+  <div class="wall-actions"><input id="wallSearch" placeholder="Search anything..."><button id="wallTheme" aria-label="Toggle theme">☼</button></div>
 </header>
 <div class="spacer"></div>
 
